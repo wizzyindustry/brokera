@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About BROKERA — Tanzania's Trusted Goods Marketplace</title>
+  <link rel="stylesheet" href="/css/brokera.css">
+</head>
+<body>
+
+<nav class="nav" id="main-nav">
+  <div class="wrap">
+    <a href="index.html" class="nav-logo">BROKERA</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About Us</a></li>
+      <li><a href="/buyer/pool.html">Browse Goods</a></li>
+      <li><a href="login.html">Log In</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="login.html" class="btn btn-outline">Log In</a>
+      <a href="/buyer/pool.html" class="btn btn-primary">Browse Goods</a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu"><span></span></button>
+    </div>
+  </div>
+  <div class="nav-overlay" id="nav-overlay"></div>
+</nav>
+
+<main>
+  <section class="hero" style="padding: 3rem 0;">
+    <div class="wrap hero-copy">
+      <p class="hero-eyebrow">Our Mission &amp; Model</p>
+      <h1>Empowering Confident Sourcing &amp; Trading in Tanzania</h1>
+      <p class="hero-sub">BROKERA is a web-based brokerage marketplace connecting Sellers, Verified Brokers, and Buyers. We solve the trust gap in local peer-to-peer commerce.</p>
+    </div>
+  </section>
+
+  <section style="padding: 4rem 0;">
+    <div class="wrap">
+      <div style="text-align: center; max-width: 640px; margin: 0 auto 3rem;">
+        <p class="section-kicker">Tri-Party Marketplace</p>
+        <h2>Designed for every participant in the deal.</h2>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span style="color: var(--color-brand-600); font-weight: 700; text-transform: uppercase;">For Sellers</span>
+          <h3 style="margin: 0.5rem 0;">Privacy &amp; Peace of Mind</h3>
+          <p>List your goods with photos, target price, and location. Your personal contact details remain private — brokers manage buyer inquiries for you.</p>
+        </div>
+        <div class="stat-card">
+          <span style="color: var(--color-emerald-600); font-weight: 700; text-transform: uppercase;">For Brokers</span>
+          <h3 style="margin: 0.5rem 0;">Verified Commission Opportunities</h3>
+          <p>Claim available listings in your area, connect with interested buyers, negotiate terms, and earn transparent, locked-in commissions.</p>
+        </div>
+        <div class="stat-card">
+          <span style="color: var(--color-amber-600); font-weight: 700; text-transform: uppercase;">For Buyers</span>
+          <h3 style="margin: 0.5rem 0;">Verified Sourcing &amp; Selection</h3>
+          <p>Browse genuine marketplace items, submit formal offers online, and let a verified local broker facilitate item inspection and deal closing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process-section">
+    <div class="wrap">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <p class="section-kicker">End-to-End Workflow</p>
+        <h2>From listing post to successful handover.</h2>
+      </div>
+      <div class="process-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <h3>1. Post Listing</h3>
+          <p>Seller uploads item specs, location, and photos. It enters the Available Goods Pool immediately.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <h3>2. Claim Listing</h3>
+          <p>A verified broker claims exclusive management of the listing for a fixed duration window.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <h3>3. Buyer Offer</h3>
+          <p>Buyer browses the pool and submits an offer. The broker reviews and coordinates counter-offers.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">04</div>
+          <h3>4. Closed Deal</h3>
+          <p>Payment clears, commission calculates automatically, and the item is handed over securely.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h2>BROKERA</h2>
+        <p>Tanzania's Web-Based Goods Brokerage &amp; Trading Platform.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="/buyer/pool.html">Browse Goods</a></li>
+          <li><a href="login.html">Log In</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Marketplace Roles</h4>
+        <ul>
+          <li><a href="/buyer/pool.html">Buyer Pool</a></li>
+          <li><a href="/broker/broker-pool.html">Broker Claims</a></li>
+          <li><a href="/seller/post-listing.html">Seller Listings</a></li>
+          <li><a href="/buyer/dashboard.html">Unified Dashboard</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="mailto:hello@brokera.co.tz">hello@brokera.co.tz</a></li>
+          <li><a href="https://brokera.co.tz" target="_blank" rel="noopener">brokera.co.tz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 BROKERA Platform. All rights reserved.</span>
+      <span>Built for the Tanzanian Market</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var t=document.getElementById('nav-toggle'),l=document.getElementById('nav-links'),o=document.getElementById('nav-overlay');
+    if(!t||!l)return;
+    function c(){t.setAttribute('aria-expanded','false');l.classList.remove('open');if(o)o.classList.remove('open');}
+    t.addEventListener('click',function(){var open=t.getAttribute('aria-expanded')==='true';if(open){c();}else{t.setAttribute('aria-expanded','true');l.classList.add('open');if(o)o.classList.add('open');}});
+    if(o)o.addEventListener('click',c);
+    l.querySelectorAll('a').forEach(function(a){a.addEventListener('click',c);});
+  })();
+</script>
+</body>
+</html>

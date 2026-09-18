@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unified Role Dashboard — BROKERA</title>
+  <link rel="stylesheet" href="/css/brokera.css">
+  <style>
+    .dash-shell {
+      display: flex;
+      min-height: 100vh;
+      background: var(--color-bg-app);
+    }
+    .dash-sidebar {
+      width: 280px;
+      background: var(--color-slate-900);
+      color: var(--color-slate-100);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      border-right: 1px solid var(--color-slate-800);
+    }
+    .dash-sidebar .dash-logo {
+      color: var(--color-white);
+      margin-bottom: 1.5rem;
+    }
+    .dash-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .dash-nav a {
+      color: var(--color-slate-300);
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-md);
+      font-weight: 500;
+      font-size: 0.9375rem;
+      transition: all var(--transition-fast);
+    }
+    .dash-nav a:hover, .dash-nav a.active {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--color-white);
+    }
+    .dash-main {
+      flex: 1;
+      padding: 2.5rem;
+      overflow-y: auto;
+    }
+    .dash-mobile-header {
+      display: none;
+    }
+    @media (max-width: 900px) {
+      .dash-shell {
+        flex-direction: column;
+      }
+      .dash-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 300;
+        transform: translateX(-100%);
+        transition: transform var(--transition-normal);
+        box-shadow: var(--shadow-xl);
+      }
+      .dash-sidebar.open {
+        transform: translateX(0);
+      }
+      .dash-sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 290;
+        display: none;
+      }
+      .dash-sidebar-overlay.open {
+        display: block;
+      }
+      .dash-mobile-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: var(--color-slate-900);
+        color: var(--color-white);
+      }
+      .dash-toggle {
+        background: transparent;
+        border: none;
+        color: var(--color-white);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+      .dash-main {
+        padding: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="dash-shell">
+  <div class="dash-sidebar-overlay" id="dash-sidebar-overlay"></div>
+  <aside class="dash-sidebar" id="dash-sidebar">
+    <a href="/index.html" class="nav-logo dash-logo">BROKERA</a>
+
+    <div class="role-tabs" style="display: flex; flex-direction: column; gap: 0.25rem; background: var(--color-slate-800); padding: 0.5rem; border-radius: var(--radius-md);">
+      <button type="button" data-role="buyer" class="active" style="text-align: left; width: 100%;">Buyer Workspace</button>
+      <button type="button" data-role="broker" style="text-align: left; width: 100%;">Broker Workspace</button>
+      <button type="button" data-role="seller" style="text-align: left; width: 100%;">Seller Workspace</button>
+      <button type="button" data-role="admin" style="text-align: left; width: 100%;">Admin Panel</button>
+    </div>
+
+    <nav class="dash-nav">
+      <a href="/dashboard.html" class="active">Overview &amp; Stats</a>
+      <a href="/buyer/pool.html">Browse Buyer Pool</a>
+      <a href="/broker/broker-pool.html">Broker Available Pool</a>
+      <a href="/broker/claims.html">My Broker Claims</a>
+      <a href="/seller/post-listing.html">Post New Listing</a>
+      <a href="/seller/my-listings.html">My Inventory</a>
+    </nav>
+
+    <div style="margin-top: auto; padding-top: 2rem; border-top: 1px solid var(--color-slate-800);">
+      <div style="font-weight: 600; font-size: 0.875rem; color: var(--color-white);" id="dash-user-name">BROKERA Member</div>
+      <a href="/login.html" style="font-size: 0.8125rem; color: var(--color-slate-400); display: block; margin-top: 0.25rem;">Log Out</a>
+    </div>
+  </aside>
+
+  <main class="dash-main" id="dash-main-content">
+    <div class="dash-mobile-header">
+      <button type="button" class="dash-toggle" id="dash-toggle" aria-label="Open sidebar">&#9776;</button>
+      <a href="/index.html" class="nav-logo" style="color: var(--color-white);">BROKERA</a>
+    </div>
+    <div class="empty-state">Loading your dashboard workspace...</div>
+  </main>
+</div>
+
+<script src="/js/dashboard.js"></script>
+<script>
+  (function(){
+    var toggle=document.getElementById('dash-toggle'),sidebar=document.getElementById('dash-sidebar'),overlay=document.getElementById('dash-sidebar-overlay');
+    if(!toggle||!sidebar)return;
+    function closeSidebar(){sidebar.classList.remove('open');if(overlay)overlay.classList.remove('open');}
+    toggle.addEventListener('click',function(){sidebar.classList.toggle('open');if(overlay)overlay.classList.toggle('open');});
+    if(overlay)overlay.addEventListener('click',closeSidebar);
+  })();
+</script>
+</body>
+</html>
