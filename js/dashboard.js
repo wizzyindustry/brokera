@@ -76,12 +76,27 @@ function relTime(iso) {
 const dashMain = document.getElementById('dash-main-content');
 if (dashMain) {
   const userId = sessionStorage.getItem('userId');
-  const userName = sessionStorage.getItem('userName') || 'BROKERA member';
+  const userName = sessionStorage.getItem('userName') || 'BROKERA Member';
   const savedRole = sessionStorage.getItem('userRole') || 'buyer';
-  let userRoles = ['buyer'];
-  try { userRoles = JSON.parse(sessionStorage.getItem('userRoles') || '["buyer"]'); } catch (err) { /* use buyer fallback */ }
+  let userRoles = ['buyer', 'broker', 'seller', 'admin'];
+  try {
+    const stored = sessionStorage.getItem('userRoles');
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      if (Array.isArray(parsed) && parsed.length) userRoles = parsed;
+    }
+  } catch (err) { /* use default all roles */ }
   const tabs = document.querySelectorAll('.role-tabs button');
   let notifications = [];
+
+  const nameEl = document.getElementById('dash-user-name');
+  const avatarEl = document.getElementById('dash-user-avatar');
+  if (nameEl) nameEl.textContent = userName;
+  if (avatarEl) {
+    const parts = userName.trim().split(' ');
+    const initials = (parts[0] ? parts[0][0] : 'B') + (parts[1] ? parts[1][0] : 'M');
+    avatarEl.textContent = initials.toUpperCase();
+  }
 
   async function loadNotifications() {
     const fallback = SAMPLE.notificationsByRole[savedRole] || [];
@@ -280,7 +295,11 @@ if (dashMain) {
 
   function activate(role) {
     tabs.forEach((t) => t.classList.toggle('active', t.dataset.role === role));
-    renderers[role]();
+    const roleBadge = document.getElementById('dash-user-role-badge');
+    if (roleBadge) {
+      roleBadge.textContent = role.charAt(0).toUpperCase() + role.slice(1) + ' Workspace';
+    }
+    if (renderers[role]) renderers[role]();
   }
 
   tabs.forEach((tab) => {
